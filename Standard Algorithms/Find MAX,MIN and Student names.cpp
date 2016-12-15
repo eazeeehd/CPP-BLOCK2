@@ -1,15 +1,17 @@
-// MAX IS A CONSTANT VARIABLE AT THE TOP//
-//______________________________________//
+// program to store grades and find average
+//
 
 #include "stdafx.h"
 #include <iostream>
 #include <iomanip> // used to display average to 2 decimal points
+#include <string>
 
 using namespace std;
 
 const int MAX = 5; // set constant for size of array
 
 int marks[MAX]; // sets up an interger array called marks[]. Size of array set to value of MAX constant
+string names[MAX] = {"Peter", "Liam", "Sean", "Kieran", "Matt"};
 
 void get_marks();
 void find_ave(int total_marks);
@@ -30,7 +32,7 @@ void get_marks()
 
 	for (int count = 0; count < MAX; count++)
 	{
-		cout << "Enter mark for student " <<count+1 << " " ;
+		cout << "Enter mark for " << names[count] + " : ";
 		cin >> marks[count];
 		total = total + marks[count];
 	}// end for loop
@@ -38,26 +40,33 @@ void get_marks()
 	find_ave(total);
 }// end method
 
+
 void find_ave(int total_marks)
 {
+	
 	float average;
+
 	average = total_marks / MAX;
+
 	print_ave(average);
 }
+
 
 void print_ave(float ave)
 {
 	cout << "The average mark is " << fixed << setprecision(2) << ave << endl;
 }
 
+
 void main()
 {
+	
 	get_marks();
 	topofclass();
 	bottom();
 }
 
-void find_max()
+void topofclass()
 {
 	/*
 	1.	 set maximum to first array element
@@ -78,7 +87,7 @@ void find_max()
 	cout << "The top of class is: " << maximum << endl;
 }
 
-void find_min()
+void bottom()
 {
 	/*
 		1.	 set minimum to first array element
